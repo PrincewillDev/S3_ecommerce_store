@@ -37,7 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'store'
+    'users',
+    'payment',
+    'products',
+    'cart',
+    'orders',
+    'vendors',
+    'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -77,17 +84,18 @@ WSGI_APPLICATION = 's3store.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get("NAME"),
-        'USER': os.environ.get("USER"),
-        'PASSWORD': os.environ.get("PASSWORD"),
-        'HOST': os.environ.get("HOST"),
-        'PORT': os.environ.get("PORT"),
+        'NAME': 'heroku_26e9cfa06e38b49',
+        'USER': 'b0fcc3ecc55838',
+        'PASSWORD': '8b15cc2b',
+        'HOST': 'us-cluster-east-01.k8s.cleardb.net',
+        'PORT': '3306',  # default MySQL port
         'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION'"
-        }
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            'ssl': {'ssl-ca': '/path/to/ca-cert.pem'},  # if your ClearDB instance requires SSL
+        },
     }
 }
-# mysql://rvzge68ftjg95czx:dtb58dg3wnwzz9jo@jj820qt5lpu6krut.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/tb0rztp7sqrvcpeb
+AUTH_USER_MODEL = 'users.User'
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -130,3 +138,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_HOST_USER = '78716e2fe20c35'
+EMAIL_HOST_PASSWORD = '89e014f68cf7ec'
+EMAIL_PORT = '2525'

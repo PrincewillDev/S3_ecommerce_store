@@ -1,5 +1,5 @@
-export NAME=tb0rztp7sqrvcpeb
-export USER=rvzge68ftjg95czx
-export PASSWORD=dtb58dg3wnwzz9jo
-export HOST=jj820qt5lpu6krut.cbetxkdyhwsb.us-east-1.rds.amazonaws.com
-export PORT=3306
+DB_NAME=heroku_26e9cfa06e38b49
+DB_USER=b0fcc3ecc55838
+DB_PASSWORD=8b15cc2b
+DB_HOST=us-cluster-east-01.k8s.cleardb.net
+DB_PORT=3306
